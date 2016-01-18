@@ -1,7 +1,7 @@
 var app = angular.module('DonationWebApp');
 
 app.controller('donateController', ['$scope', '$location', '$http', function($scope, $location, $http) {
-
+    
     $scope.formData = {};
 
     $scope.message = 'Donate Page!';
@@ -15,8 +15,8 @@ app.controller('donateController', ['$scope', '$location', '$http', function($sc
     $scope.formData.upvotes = 0;
 
     $scope.addDonation = function(){
-        $scope.formData.paymenttype = $scope.formData.paymentOptions.name;
-        $http.post('/donations', $scope.formData)
+      $scope.formData.paymenttype = $scope.formData.paymentOptions.name;
+       $http.post('/donations', $scope.formData)
             .success(function(data) {
                 $scope.donations = data;
                 $location.path('/donations');
@@ -24,8 +24,8 @@ app.controller('donateController', ['$scope', '$location', '$http', function($sc
             })
             .error(function(data) {
                 console.log('Error: ' + data);
-            });
-    };
-}
+              });
+            };
+  }
 
-]);
+  ]);
